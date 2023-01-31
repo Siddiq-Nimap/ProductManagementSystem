@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CrudOperations.Models.Product>
+
+@{
+    ViewBag.Title = "ShowProduct";
+}
+
+<h2>ShowProduct</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayName("Product Image")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductGenericName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                <img src="@Url.Content(item.ImagePath)" height="100" width="100" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductGenericName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "CatagoryList")
+</div>

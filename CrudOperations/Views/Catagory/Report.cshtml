@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CrudOperations.ViewModels.ReportCLass>
+
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+
+
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatagoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductGenericName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatagoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductGenericName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+        </tr>
+    }
+
+
+</table>
+<p>
+
+    @Html.ActionLink("Back to List", "CatagoryList")
+</p>
