@@ -10,6 +10,7 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Http.Results;
 using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -71,6 +72,13 @@ namespace CrudOperations.Controllers
 
             var data = await category.GetReportAsync(id);
             return View(data);
+        }
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> ReportALL()
+        {
+            var data = await category.GetReportAsync();
+            if(data != null) { return View(data); } else { return RedirectToAction("CatagoryList", "Catagory"); }
         }
 
         [HttpGet]

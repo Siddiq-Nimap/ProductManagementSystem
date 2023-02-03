@@ -1,0 +1,21 @@
+﻿Product->Index -> The model item passed into the dictionary is of type 'System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[CrudOperations.Models.Product]]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[CrudOperations.Models.Product]'.	 -->1/27/2023 6:12:11 PM
+-------------------Product->Index -> Custom error handling in txt
+	 -->1/27/2023 6:19:48 PM
+-------------------------------------------------------------------------------------------------------------------------
+
+Product->Index -> Unable to cast object of type 'System.Collections.Generic.List`1[CrudOperations.Models.Catagory]' to type 'System.Collections.Generic.List`1[CrudOperations.Models.Product]'.
+	 -->1/28/2023 11:43:32 AM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Product->Index -> Unable to cast object of type 'System.Collections.Generic.List`1[CrudOperations.Models.Catagory]' to type 'System.Collections.Generic.List`1[CrudOperations.Models.Product]'.
+	 -->1/28/2023 11:43:52 AM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Product->Create -> The INSERT statement conflicted with the FOREIGN KEY constraint "FK_dbo.Products_dbo.Logins_UserID". The conflict occurred in database "ProductDb", table "dbo.Logins", column 'Id'.
+The statement has been terminated.
+	 -->1/28/2023 5:12:36 PM
+
+-------------------------------------------------------------------------------------------------------------------------
+

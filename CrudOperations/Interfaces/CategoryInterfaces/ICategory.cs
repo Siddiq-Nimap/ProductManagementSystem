@@ -17,6 +17,7 @@ namespace CrudOperations.Interfaces
         Task<Catagory> GetCatagoryByIdAsync(int Id);
 
         Task<List<ReportCLass>> GetReportAsync(int id);
+        Task<IEnumerable<ReportCLass>> GetReportAsync();
 
     }
 }

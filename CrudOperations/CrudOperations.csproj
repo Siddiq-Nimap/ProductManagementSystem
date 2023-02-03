@@ -335,6 +335,7 @@
     <Content Include="Views\Error\On500.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Catagory\Delete.cshtml" />
+    <Content Include="Views\Catagory\ReportALL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

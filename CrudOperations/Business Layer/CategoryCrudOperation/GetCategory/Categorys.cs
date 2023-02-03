@@ -112,5 +112,13 @@ namespace CrudOperations.Business_Layer.CategoryCrudOperation
             return data;
         }
 
+        public async Task<IEnumerable<ReportCLass>> GetReportAsync()
+        {
+            var data = await productdb.Database.SqlQuery<ReportCLass>("execute sp_Reportall").ToListAsync();
+            return data;
+
+        }
+
+
     }
 }
