@@ -31,7 +31,7 @@ namespace CrudOperations
             //File
             container.RegisterType<IFileSaving, FileUploadClass>();
 
-            //Login
+            //Logins
             container.RegisterType<ILogin,LoginCredentialClass>();
 
             //Product
@@ -40,10 +40,13 @@ namespace CrudOperations
             container.RegisterType<IProductModification,ProductModification>();
 
             //Category
-            container.RegisterType<ICategory, Categorys>();
+            container.RegisterType<ICategory,Categorys>();
             container.RegisterType<ICategoryInsertion,CategoryInsertion>();
             container.RegisterType<ICategoryActivation,Activation>();
             container.RegisterType<ICategoryModification,CategoryModification>();
+
+            //Authentication
+            container.RegisterType<IAuthenticationManager,AuthenticationClass>();
             
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

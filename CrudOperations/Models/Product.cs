@@ -51,7 +51,7 @@ namespace CrudOperations.Models
         [ForeignKey("Logins")]
         public int UserID { get; set; }
 
-        public Login Logins { get; set; }
+        public Logins Logins { get; set; }
 
     }
 }

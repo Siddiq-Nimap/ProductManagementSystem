@@ -1,8 +1,13 @@
 ﻿using CrudOperations.App_Start;
+using CrudOperations.Business_Layer;
+using CrudOperations.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -12,6 +17,12 @@ namespace CrudOperations
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        readonly IAuthenticationManager Authenticate;
+        public MvcApplication()
+        {
+           Authenticate = new AuthenticationClass();
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -20,6 +31,20 @@ namespace CrudOperations
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             UnityConfig.RegisterComponents();
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+        }
+        protected void Application_AuthenticateRequest()
+        {
+            var token = Request.Cookies["Bearer"]?.Value;
+
+            if (token != null)
+            {
+                
+               var principal = Authenticate.ValidationToken(token);
+
+                HttpContext.Current.User = principal;
+                Thread.CurrentPrincipal = principal;
+            }
         }
     }
 }

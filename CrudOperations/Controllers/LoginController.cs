@@ -10,16 +10,17 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI.WebControls;
-using Login = CrudOperations.Models.Login;
-
 namespace CrudOperations.Controllers
 {
+    
     public class LoginController : Controller
     {
         readonly ILogin Logins;
-        public LoginController(ILogin logins)
+        readonly IAuthenticationManager Authenticate;
+        public LoginController(ILogin logins,IAuthenticationManager authenticate)
         {
             Logins = logins;
+            Authenticate = authenticate;
         }
 
         [HttpGet]
@@ -30,21 +31,28 @@ namespace CrudOperations.Controllers
 
         [HttpPost]
         [ActionName("Index")]
-        public async Task<ActionResult> IndexAsync(LoginClass login , string returnUrl)
+        public async Task<ActionResult> IndexAsync(LoginClass login)
         {
             if (ModelState.IsValid)
             {
-                bool data = await Logins.LoginAsync(login);
-                if (data == true)
+                //bool data = await Logins.LoginAsync(login);
+                var data = await Logins.LoginEntAsync(login);
+                if (data != null)
                 {
-                    FormsAuthentication.SetAuthCookie(login.UserName, false);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else{return RedirectToAction("Index", "Catagory");}
+                    //FormsAuthentication.SetAuthCookie(login.UserName, false);
+                    //if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    //{
+                    //    return Redirect(returnUrl);
+                    //}
+                    //else
+                    //{
+                    //}
+                        var token = Authenticate.GenerateToken(data);
+
+                        Response.Cookies.Set(new HttpCookie("Bearer" ,token));
+                        return RedirectToAction("Index", "Catagory");
                 }
-                else{ViewBag.LoginError = "Login Failed";}
+                else{ViewBag.LoginError = "Logins Failed";}
             }
             return View();
         }
@@ -74,8 +82,12 @@ namespace CrudOperations.Controllers
 
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Login");
+           var cookie = Request.Cookies["Bearer"];
+
+            cookie.Expires = DateTime.Now.AddSeconds(1);
+
+            Response.Cookies.Add(cookie);
+            return View("Index");
         }
     }
 }

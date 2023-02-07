@@ -1,4 +1,5 @@
-﻿using CrudOperations.ViewModels;
+﻿using CrudOperations.Models;
+using CrudOperations.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace CrudOperations.Interfaces
 
         Task<bool> InsertSignDetailsAsync(SignUpClass Sign);
         Task<bool> LoginAsync(LoginClass login);
+
+        Task<Logins> LoginEntAsync(LoginClass user);
 
     }
 }

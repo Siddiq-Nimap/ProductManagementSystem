@@ -20,7 +20,7 @@ namespace CrudOperations.Models
         public DbSet<Catagory> Catagories { get; set; }
         public DbSet<CatagoryList> CatagoryLists { get; set; }
 
-        public DbSet<Login> Logins { get; set; }
+        public DbSet<Logins> Logins { get; set; }
 
 
        public string cs = ConfigurationManager.ConnectionStrings["ProductContex"].ConnectionString;

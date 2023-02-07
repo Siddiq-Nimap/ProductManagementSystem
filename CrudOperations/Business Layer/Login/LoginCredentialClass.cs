@@ -79,5 +79,18 @@ namespace CrudOperations.Business_Layer
                 }
             }
         }
+
+        public async Task<Logins> LoginEntAsync(LoginClass user)
+        {
+            var credentials = await productdb.Logins.FirstOrDefaultAsync(model => model.UserName == user.UserName && model.Password == user.Password);
+            if (credentials == null)
+            {
+                return null;
+            }
+            else
+            {
+                return credentials;
+            }
+        }
     }
 }

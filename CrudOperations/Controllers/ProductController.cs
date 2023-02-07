@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -57,7 +58,14 @@ namespace CrudOperations.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create()
         {
-            var data = await logins.GetIdByUsername(User.Identity.Name.ToString());
+            var identity = User.Identity as ClaimsIdentity;
+
+            var claims = identity.Claims;
+
+            var IdentifierName = claims.Where(model => model.Type == ClaimTypes.NameIdentifier).FirstOrDefault();
+            string name = IdentifierName.Value;
+
+            var data = await logins.GetIdByUsername(name);
             Product pro = new Product()
             {
                 UserID = data

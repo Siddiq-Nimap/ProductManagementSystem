@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
 using System.Web.Mvc;
@@ -68,7 +69,13 @@ namespace CrudOperations.Controllers
         [Authorize(Roles ="Admin")]
         public async Task<ActionResult> Report()
         {
-            var id = await logins.GetIdByUsername(User.Identity.Name.ToString());
+            var identity = User.Identity as ClaimsIdentity;
+
+            var claims = identity.Claims;
+
+            var IdentifierName = claims.Where(model => model.Type == ClaimTypes.NameIdentifier).FirstOrDefault();
+            string name = IdentifierName.Value;
+            var id = await logins.GetIdByUsername(name);
 
             var data = await category.GetReportAsync(id);
             return View(data);
