@@ -24,3 +24,101 @@ Catagory->Report -> Sequence contains no elements
 
 -------------------------------------------------------------------------------------------------------------------------
 
+Catagory->Create -> The partial view '_Create.cshtml' was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Catagory/_Create.cshtml.aspx
+~/Views/Catagory/_Create.cshtml.ascx
+~/Views/Shared/_Create.cshtml.aspx
+~/Views/Shared/_Create.cshtml.ascx
+~/Views/Catagory/_Create.cshtml.cshtml
+~/Views/Catagory/_Create.cshtml.vbhtml
+~/Views/Shared/_Create.cshtml.cshtml
+~/Views/Shared/_Create.cshtml.vbhtml
+	 -->2/7/2023 6:01:20 PM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> The partial view '_Create.cshtml' was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Catagory/_Create.cshtml.aspx
+~/Views/Catagory/_Create.cshtml.ascx
+~/Views/Shared/_Create.cshtml.aspx
+~/Views/Shared/_Create.cshtml.ascx
+~/Views/Catagory/_Create.cshtml.cshtml
+~/Views/Catagory/_Create.cshtml.vbhtml
+~/Views/Shared/_Create.cshtml.cshtml
+~/Views/Shared/_Create.cshtml.vbhtml
+	 -->2/7/2023 6:01:24 PM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> The partial view '_Create.cshtml' was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Catagory/_Create.cshtml.aspx
+~/Views/Catagory/_Create.cshtml.ascx
+~/Views/Shared/_Create.cshtml.aspx
+~/Views/Shared/_Create.cshtml.ascx
+~/Views/Catagory/_Create.cshtml.cshtml
+~/Views/Catagory/_Create.cshtml.vbhtml
+~/Views/Shared/_Create.cshtml.cshtml
+~/Views/Shared/_Create.cshtml.vbhtml
+	 -->2/7/2023 6:01:28 PM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> The partial view '_Create.cshtml' was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Catagory/_Create.cshtml.aspx
+~/Views/Catagory/_Create.cshtml.ascx
+~/Views/Shared/_Create.cshtml.aspx
+~/Views/Shared/_Create.cshtml.ascx
+~/Views/Catagory/_Create.cshtml.cshtml
+~/Views/Catagory/_Create.cshtml.vbhtml
+~/Views/Shared/_Create.cshtml.cshtml
+~/Views/Shared/_Create.cshtml.vbhtml
+	 -->2/7/2023 6:01:30 PM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> The partial view '_Create.cshtml' was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Catagory/_Create.cshtml.aspx
+~/Views/Catagory/_Create.cshtml.ascx
+~/Views/Shared/_Create.cshtml.aspx
+~/Views/Shared/_Create.cshtml.ascx
+~/Views/Catagory/_Create.cshtml.cshtml
+~/Views/Catagory/_Create.cshtml.vbhtml
+~/Views/Shared/_Create.cshtml.cshtml
+~/Views/Shared/_Create.cshtml.vbhtml
+	 -->2/7/2023 6:01:32 PM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> The partial view '_Create.cshtml' was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Catagory/_Create.cshtml.aspx
+~/Views/Catagory/_Create.cshtml.ascx
+~/Views/Shared/_Create.cshtml.aspx
+~/Views/Shared/_Create.cshtml.ascx
+~/Views/Catagory/_Create.cshtml.cshtml
+~/Views/Catagory/_Create.cshtml.vbhtml
+~/Views/Shared/_Create.cshtml.cshtml
+~/Views/Shared/_Create.cshtml.vbhtml
+	 -->2/7/2023 6:01:34 PM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> Procedure or function 'spInsertCatagory' expects parameter '@CatagoryName', which was not supplied.
+	 -->2/8/2023 10:04:07 AM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> Procedure or function 'spInsertCatagory' expects parameter '@CatagoryName', which was not supplied.
+	 -->2/8/2023 10:12:07 AM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> Procedure or function 'spInsertCatagory' expects parameter '@CatagoryName', which was not supplied.
+	 -->2/8/2023 10:16:22 AM
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Catagory->Create -> Procedure or function 'spInsertCatagory' expects parameter '@CatagoryName', which was not supplied.
+	 -->2/8/2023 10:17:01 AM
+
+-------------------------------------------------------------------------------------------------------------------------
+

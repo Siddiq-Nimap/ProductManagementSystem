@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CrudOperations.Models.Product>
+
+<br />
+<br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Logins.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductGenericName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th>
+             Product Image
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logins.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductGenericName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductPrice)
+        </td>
+        <td>
+           <img src="@Url.Content(item.ImagePath)" height="100" width="100" />
+        </td>
+    </tr>
+}
+
+</table>

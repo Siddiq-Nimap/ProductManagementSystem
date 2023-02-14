@@ -1,9 +1,6 @@
 ﻿using CrudOperations.App_Start;
 using CrudOperations.Business_Layer;
 using CrudOperations.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading;
 using System.Web;
@@ -15,7 +12,7 @@ using System.Web.Routing;
 
 namespace CrudOperations
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         readonly IAuthenticationManager Authenticate;
         public MvcApplication()
@@ -26,11 +23,11 @@ namespace CrudOperations
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            UnityConfig.RegisterComponents();
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
         }
         protected void Application_AuthenticateRequest()

@@ -52,6 +52,21 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.EF6, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.EF6.1.6.5\lib\net45\Glimpse.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
     <Reference Include="Grpc.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
       <HintPath>..\packages\Grpc.Core.2.46.6\lib\net45\Grpc.Core.dll</HintPath>
     </Reference>
@@ -168,13 +183,19 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Unity.Abstractions.5.11.7\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Container, Version=5.11.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Container.dll</HintPath>
+      <HintPath>..\packages\Unity.Container.5.11.11\lib\net47\Unity.Container.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.4.0\lib\net45\Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -196,23 +217,25 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="ApiController\ConsumingApiController.cs" />
     <Compile Include="Business Layer\AuthenticationClass.cs" />
     <Compile Include="Business Layer\CategoryCrudOperation\Activation\Activation.cs" />
     <Compile Include="Business Layer\CategoryCrudOperation\GetCategory\Categorys.cs" />
-    <Compile Include="Business Layer\File\FileUploadClass.cs" />
     <Compile Include="Business Layer\CategoryCrudOperation\Insertion\CategoryInsertion.cs" />
-    <Compile Include="Business Layer\Login\LoginCredentialClass.cs" />
     <Compile Include="Business Layer\CategoryCrudOperation\Modification\CategoryModification.cs" />
+    <Compile Include="Business Layer\File\FileUploadClass.cs" />
+    <Compile Include="Business Layer\Login\LoginCredentialClass.cs" />
+    <Compile Include="Business Layer\Paging\ProductPaging.cs" />
     <Compile Include="Business Layer\ProductCrudOperation\GetProduct\ProductCrud.cs" />
     <Compile Include="Business Layer\ProductCrudOperation\Insertion\ProductInsertion.cs" />
     <Compile Include="Business Layer\ProductCrudOperation\Modification\ProductModification.cs" />
-    <Compile Include="Business Layer\Paging\ProductPaging.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\CatagoryController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="ApiController\ProductsController.cs" />
     <Compile Include="CustomFilters\CustomFilterClass.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,10 +246,10 @@
     <Compile Include="Interfaces\FilesInterface\IFileSaving.cs" />
     <Compile Include="Interfaces\IAuthenticationManager.cs" />
     <Compile Include="Interfaces\LoginInterfaces\ILogin.cs" />
-    <Compile Include="Interfaces\ProductInterfaces\IProductModification.cs" />
-    <Compile Include="Interfaces\ProductInterfaces\IProduct.cs" />
     <Compile Include="Interfaces\PagingInterface\IPaging.cs" />
+    <Compile Include="Interfaces\ProductInterfaces\IProduct.cs" />
     <Compile Include="Interfaces\ProductInterfaces\IProductInsertion.cs" />
+    <Compile Include="Interfaces\ProductInterfaces\IProductModification.cs" />
     <Compile Include="Migrations\202301101159590_InitialMigration.cs" />
     <Compile Include="Migrations\202301101159590_InitialMigration.designer.cs">
       <DependentUpon>202301101159590_InitialMigration.cs</DependentUpon>
@@ -307,9 +330,9 @@
     <Compile Include="Models\ProductContex.cs" />
     <Compile Include="MyRoleProvider\SiteRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\LoginClass.cs" />
-    <Compile Include="ViewModels\ReportClass.cs" />
-    <Compile Include="ViewModels\SignUpClass.cs" />
+    <Compile Include="Dto\LoginDto.cs" />
+    <Compile Include="Dto\ReportDto.cs" />
+    <Compile Include="Dto\SignUpDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -321,6 +344,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -329,10 +353,13 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Jqueryprsnl.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -359,8 +386,6 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Signup.cshtml" />
     <Content Include="Views\Catagory\Report.cshtml" />
-    <Content Include="Views\Shared\Unauthorised.cshtml" />
-    <Content Include="Views\Shared\UnAuthenticated.cshtml" />
     <Content Include="Views\Error\On404.cshtml" />
     <Content Include="Views\Error\On401.cshtml" />
     <Content Include="Views\Error\On403.cshtml" />
@@ -368,10 +393,11 @@
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Catagory\Delete.cshtml" />
     <Content Include="Views\Catagory\ReportALL.cshtml" />
+    <Content Include="Views\Product\Pages.cshtml" />
+    <Content Include="Views\ConsumingApi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -441,6 +467,9 @@
     <EmbeddedResource Include="Migrations\202301240632471_adding.resx">
       <DependentUpon>202301240632471_adding.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

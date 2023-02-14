@@ -43,8 +43,6 @@ namespace CrudOperations.Models
 
         public string ImagePath { get; set; }
 
-        // public Catagory CatagoryId { get; set; } 
-
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
 

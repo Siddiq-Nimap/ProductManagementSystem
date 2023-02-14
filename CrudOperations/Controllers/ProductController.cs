@@ -2,23 +2,18 @@
 using CrudOperations.Interfaces;
 using CrudOperations.Interfaces.ProductInterfaces;
 using CrudOperations.Models;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
-using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls.WebParts;
 
 namespace CrudOperations.Controllers
 {
     [Authorize]
     [CustomFilterClass]
+   
     public class ProductController : Controller
     {
         readonly IPaging page;
@@ -66,11 +61,9 @@ namespace CrudOperations.Controllers
             string name = IdentifierName.Value;
 
             var data = await logins.GetIdByUsername(name);
-            Product pro = new Product()
-            {
-                UserID = data
-            };
-            return View(pro);
+
+            Session["userid"] = data;
+            return View();
         }
 
 
@@ -86,14 +79,14 @@ namespace CrudOperations.Controllers
 
                 bool Check = await ProductInsert.InsertProductAsync(fruits);
 
-                if (Check == true){return RedirectToAction("Index", "Product");}
-                else{ViewBag.Create = "Your Data has not inserted";}
+                if (Check == true){return Json("Your Data has been inserted successfully");}
+                else{return Json("Your Data has not inserted");}
             }
             else
             {
-                ViewBag.Message = data;
+                return Json(data);
             }
-            return View();
+            
         }
 
         [HttpGet]
@@ -125,21 +118,21 @@ namespace CrudOperations.Controllers
                     if (check == true)
                     { 
                         file.FileDelete(Session["Image"].ToString());
-                        return RedirectToAction("Index", "Product");
+                        return Json("Your Data has been successfully Edited");
                     }
-                    else{ViewBag.EditMessage = "Your Data has not Edited";}
+                    else{ return Json("Your Data has not Edited"); }
                 }
-                else{ViewBag.EditMessage = data;}
+                else{ return Json(data); }
             }
             else
             {
                 fruits.ImagePath = Session["Image"].ToString();
                 bool check = await ProductModify.EditProductAsync(fruits);
 
-                if (check == true){return RedirectToAction("Index", "Product");}
-                else{ViewBag.Edit = "Your Data has not Edited";}
+                if (check == true){return Json("Your Data has been updated successfully");}
+                else{ return Json("Your Data has not Edited");}
             }
-            return View();
+            
         }
 
         [HttpGet]
@@ -175,5 +168,9 @@ namespace CrudOperations.Controllers
             else{return View(data);}
         }
         
+        public ActionResult Pages()
+        {
+            return View();
+        }
     }
 }

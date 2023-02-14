@@ -10,14 +10,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI.WebControls;
+
 namespace CrudOperations.Controllers
 {
-    
     public class LoginController : Controller
     {
         readonly ILogin Logins;
         readonly IAuthenticationManager Authenticate;
-        public LoginController(ILogin logins,IAuthenticationManager authenticate)
+        public LoginController(ILogin logins, IAuthenticationManager authenticate)
         {
             Logins = logins;
             Authenticate = authenticate;
@@ -31,7 +31,7 @@ namespace CrudOperations.Controllers
 
         [HttpPost]
         [ActionName("Index")]
-        public async Task<ActionResult> IndexAsync(LoginClass login)
+        public async Task<ActionResult> IndexAsync(LoginDto login, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -44,18 +44,17 @@ namespace CrudOperations.Controllers
                     //{
                     //    return Redirect(returnUrl);
                     //}
-                    //else
-                    //{
-                    //}
-                        var token = Authenticate.GenerateToken(data);
+                    var token = Authenticate.GenerateToken(data);
 
-                        Response.Cookies.Set(new HttpCookie("Bearer" ,token));
-                        return RedirectToAction("Index", "Catagory");
+                    Response.Cookies.Set(new HttpCookie("Bearer", token));
+                    return RedirectToAction("Index", "Catagory");
                 }
-                else{ViewBag.LoginError = "Logins Failed";}
+                else { ViewBag.LoginError = "Logins Failed"; }
             }
             return View();
         }
+    
+ 
         public ActionResult SignUp()
         {
             return View();
@@ -64,7 +63,7 @@ namespace CrudOperations.Controllers
 
         [HttpPost]
         [ActionName("SignUp")]
-        public async Task< ActionResult> SignUpAsync(SignUpClass signup)
+        public async Task< ActionResult> SignUpAsync(SignUpDto signup)
         {
             if(ModelState.IsValid)
             {

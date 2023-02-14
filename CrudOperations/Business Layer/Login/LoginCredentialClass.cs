@@ -26,7 +26,7 @@ namespace CrudOperations.Business_Layer
             return data.Id;
         }
 
-        public async Task<bool> InsertSignDetailsAsync(SignUpClass Sign)
+        public async Task<bool> InsertSignDetailsAsync(SignUpDto Sign)
         {
             using (SqlConnection connection = new SqlConnection(productdb.cs))
             {
@@ -48,9 +48,9 @@ namespace CrudOperations.Business_Layer
             }
         }
 
-        public async Task<bool> LoginAsync(LoginClass login)
+        public async Task<bool> LoginAsync(LoginDto login)
         {
-            List<LoginClass> list = new List<LoginClass>();
+            List<LoginDto> list = new List<LoginDto>();
             using (SqlConnection con = new SqlConnection(productdb.cs))
             {
                 SqlCommand command = new SqlCommand("spLogin", con);
@@ -62,7 +62,7 @@ namespace CrudOperations.Business_Layer
                 SqlDataReader sdr = await command.ExecuteReaderAsync();
                 while (await sdr.ReadAsync())
                 {
-                    LoginClass _login = new LoginClass();
+                    LoginDto _login = new LoginDto();
                     _login.UserName = await sdr.GetFieldValueAsync<string>(0);
                     _login.Password = await sdr.GetFieldValueAsync<string>(1);
 
@@ -80,7 +80,7 @@ namespace CrudOperations.Business_Layer
             }
         }
 
-        public async Task<Logins> LoginEntAsync(LoginClass user)
+        public async Task<Logins> LoginEntAsync(LoginDto user)
         {
             var credentials = await productdb.Logins.FirstOrDefaultAsync(model => model.UserName == user.UserName && model.Password == user.Password);
             if (credentials == null)

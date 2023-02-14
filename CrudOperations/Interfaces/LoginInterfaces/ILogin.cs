@@ -12,10 +12,10 @@ namespace CrudOperations.Interfaces
     {
         Task<int> GetIdByUsername(string username);
 
-        Task<bool> InsertSignDetailsAsync(SignUpClass Sign);
-        Task<bool> LoginAsync(LoginClass login);
+        Task<bool> InsertSignDetailsAsync(SignUpDto Sign);
+        Task<bool> LoginAsync(LoginDto login);
 
-        Task<Logins> LoginEntAsync(LoginClass user);
+        Task<Logins> LoginEntAsync(LoginDto user);
 
     }
 }

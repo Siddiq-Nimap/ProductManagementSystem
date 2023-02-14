@@ -1,20 +1,13 @@
-﻿using CrudOperations.Business_Layer.CategoryCrudOperation;
-using CrudOperations.CustomFilters;
+﻿using CrudOperations.CustomFilters;
 using CrudOperations.Interfaces;
 using CrudOperations.Models;
-using CrudOperations.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web.Http.Results;
 using System.Web.Mvc;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+
 
 namespace CrudOperations.Controllers
 {
@@ -34,7 +27,7 @@ namespace CrudOperations.Controllers
         public CatagoryController(IPaging page,
             ILogin logins,
             ICategory category, IProduct product,
-            ICategoryInsertion insert, 
+            ICategoryInsertion insert,
             ICategoryActivation activate,
             ICategoryModification modify)
         {
@@ -103,7 +96,7 @@ namespace CrudOperations.Controllers
             bool data = await CategoryInsert.InsertCatagoryAsync(cat);
             if (data == true)
             {
-                return RedirectToAction("CatagoryList", "Catagory");
+                return Json("Your data has successfully inserted");
             }
             else
             {
@@ -116,7 +109,6 @@ namespace CrudOperations.Controllers
         [ActionName("ShowProduct")]
         public async Task<ActionResult> ShowProductAsync(int id)
         {
-            //var data = await productdb.GetProductsByCatagoryIdAsync(id);
             var data = await category.GetProductsByCatagoryIdAsync(id);
             return View(data);
         }
@@ -127,8 +119,7 @@ namespace CrudOperations.Controllers
         public async Task<ActionResult> AddProductAsync(int id)
         {
             TempData["id"] = id;
-            //var data = await productdb.GetProductAsync();
-            var data = await products.GetProductAsync();
+            var data = await category.GetNonAddedProduct(id);
             return View(data);
         }
 
