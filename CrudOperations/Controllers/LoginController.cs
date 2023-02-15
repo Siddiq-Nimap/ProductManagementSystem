@@ -15,9 +15,9 @@ namespace CrudOperations.Controllers
 {
     public class LoginController : Controller
     {
-        readonly ILogin Logins;
+        readonly ICredential Logins;
         readonly IAuthenticationManager Authenticate;
-        public LoginController(ILogin logins, IAuthenticationManager authenticate)
+        public LoginController(ICredential logins, IAuthenticationManager authenticate)
         {
             Logins = logins;
             Authenticate = authenticate;

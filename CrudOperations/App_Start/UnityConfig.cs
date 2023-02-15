@@ -28,24 +28,24 @@ namespace CrudOperations
             // e.g. container.RegisterType<ITestService, TestService>();
 
             //catagory resolver
-            container.RegisterType<ICategory, Categorys>();
-            container.RegisterType<ICategoryActivation, Activation>();
-            container.RegisterType<ICategoryModification, CategoryModification>();
-            container.RegisterType<ICategoryInsertion, CategoryInsertion>();
+            container.RegisterType<ICatagory, Categorys>();
+            container.RegisterType<ICatagoryActivate, Activation>();
+            container.RegisterType<ICatagoryModify, CategoryModification>();
+            container.RegisterType<ICatagoryInsert, CategoryInsert>();
 
             //Product Resolver
-            container.RegisterType<IProduct, ProductCrud>();
-            container.RegisterType<IProductInsertion, ProductInsertion>();
-            container.RegisterType<IProductModification, ProductModification>();
+            container.RegisterType<IProduct, product>();
+            container.RegisterType<IProductInsert, ProductInsert>();
+            container.RegisterType<IProductModify, ProductModification>();
 
             //Login Resolver
-            container.RegisterType<ILogin, LoginCredentialClass>();
+            container.RegisterType<ICredential, Credentials>();
 
             //File Resolver
-            container.RegisterType<IFileSaving, FileUploadClass>();
+            container.RegisterType<IFileUploading, FileUploading>();
 
             //Paging Resolver
-            container.RegisterType<IPaging, ProductPaging>();
+            container.RegisterType<IPagination, Pagination>();
 
             //Authentication Resolver
             container.RegisterType<IAuthenticationManager, AuthenticationClass>();

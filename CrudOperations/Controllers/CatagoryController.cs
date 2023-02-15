@@ -16,20 +16,20 @@ namespace CrudOperations.Controllers
     [CustomFilterClass]
     public class CatagoryController : Controller
     {
-        readonly IPaging page;
+        readonly IPagination page;
         //readonly ProductContex productdb;
-        readonly ILogin logins;
-        readonly ICategory category;
-        readonly ICategoryActivation CategoryActivate;
-        readonly ICategoryInsertion CategoryInsert;
-        readonly ICategoryModification CategoryModify;
+        readonly ICredential logins;
+        readonly ICatagory category;
+        readonly ICatagoryActivate CategoryActivate;
+        readonly ICatagoryInsert CategoryInsert;
+        readonly ICatagoryModify CategoryModify;
         readonly IProduct products;
-        public CatagoryController(IPaging page,
-            ILogin logins,
-            ICategory category, IProduct product,
-            ICategoryInsertion insert,
-            ICategoryActivation activate,
-            ICategoryModification modify)
+        public CatagoryController(IPagination page,
+            ICredential logins,
+            ICatagory category, IProduct product,
+            ICatagoryInsert insert,
+            ICatagoryActivate activate,
+            ICatagoryModify modify)
         {
             this.page = page;
             this.products = product;

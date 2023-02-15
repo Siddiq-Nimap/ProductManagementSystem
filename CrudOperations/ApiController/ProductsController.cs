@@ -15,9 +15,9 @@ namespace CrudOperations.Controllers
     public class ProductsController : ApiController 
     {
         readonly IProduct product;
-        readonly IProductInsertion productInsert;
-        readonly IProductModification productModify;
-        public ProductsController(IProduct product,IProductInsertion productInsert,IProductModification productmodify)
+        readonly IProductInsert productInsert;
+        readonly IProductModify productModify;
+        public ProductsController(IProduct product,IProductInsert productInsert,IProductModify productmodify)
         {
             this.product = product;
             this.productInsert = productInsert;

@@ -23,7 +23,7 @@ namespace CrudOperations.CustomFilters
 
         private void ExecutionError(string data)
         {
-            File.AppendAllText(HttpContext.Current.Server.MapPath("~/ErrorLog/Error.txt"),data);
+            File.AppendAllText(HttpContext.Current.Server.MapPath("~/ErrorController/Error.txt"),data);
         }
     }
 }

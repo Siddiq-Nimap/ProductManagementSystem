@@ -16,18 +16,18 @@ namespace CrudOperations.Controllers
    
     public class ProductController : Controller
     {
-        readonly IPaging page;
-        readonly IFileSaving file;
+        readonly IPagination page;
+        readonly IFileUploading file;
         readonly IProduct products;
-        readonly IProductInsertion ProductInsert;
-        readonly IProductModification ProductModify;
-        readonly ILogin logins;
-        public ProductController(IPaging page,
-            IFileSaving file,
+        readonly IProductInsert ProductInsert;
+        readonly IProductModify ProductModify;
+        readonly ICredential logins;
+        public ProductController(IPagination page,
+            IFileUploading file,
             IProduct products,
-            ILogin logins,
-            IProductInsertion insert,
-            IProductModification modify)
+            ICredential logins,
+            IProductInsert insert,
+            IProductModify modify)
         {
             this.page = page;
             this.file = file;
